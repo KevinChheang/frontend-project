@@ -1,8 +1,8 @@
 <div class="wrapper">
   <h1 class="heading">Sign In</h1>
-  <input class="username" placeholder="Username or email"><br>
-  <input class="password" placeholder="Password"><br>
-  <button class="sign-in">Sign in</button>
+  <input [(ngModel)]="userCredentials.email" class="username" placeholder="Username or email"><br>
+  <input [(ngModel)]="userCredentials.password" class="password" placeholder="Password"><br>
+  <button (click)="onCheckUser()" class="sign-in">Sign in</button>
   
   <div class="container">
       <a class="forgot-password" href="">Forgot password?</a>

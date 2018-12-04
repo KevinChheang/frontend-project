@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { StockService } from '../stock.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,18 +9,22 @@ import { StockService } from '../stock.service';
 })
 export class SignupComponent implements OnInit {
   
-  firstName: string = "";
-  lastName: string = "";
-  email: string = "";
-  password: string = "";
+  user = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: ""
+  }
 
-  constructor(public _api: StockService) {}
+  constructor(public _api: UserService) {}
   
   onPostUserInfo() {
-    this._api.postUserInfo(this.firstName, this.lastName, this.email, this.password)
+    this._api.postUserInfo(this.user)
     .subscribe(
-        data => {
+        (data:any) => {
           console.log("POST request is successful", data);
+          window.sessionStorage.setItem("token", data.token);
+          window.sessionStorage.setItem("userId", data.userId);
         });
   }
   

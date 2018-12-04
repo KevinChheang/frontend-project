@@ -1,8 +1,8 @@
 <div class="wrapper">
     <h1 class="heading">Create a New Account</h1>
-    <input [(ngModel)]="firstName" class="username" placeholder="First name"/> <br/>
-    <input [(ngModel)]="lastName" class="username" placeholder="Last name"/> <br/>
-    <input [(ngModel)]="email" class="email" placeholder="Email"/> <br/>
-    <input [(ngModel)]="password" class="password" placeholder="Password"/> <br/>
+    <input [(ngModel)]="user.firstName" class="username" placeholder="First name"/> <br/>
+    <input [(ngModel)]="user.lastName" class="username" placeholder="Last name"/> <br/>
+    <input [(ngModel)]="user.email" class="email" placeholder="Email"/> <br/>
+    <input [(ngModel)]="user.password" class="password" placeholder="Password"/> <br/>
     <button class="sign-up" (click)="onPostUserInfo()">Sign up</button> <br/>
 </div>
