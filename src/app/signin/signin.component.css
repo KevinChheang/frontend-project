@@ -47,20 +47,11 @@
     font-size: 12px;
 }
 
-.sign-up{
-    font-size: 12px;
-}
-
 a:visited {
     color: #C1F4EE;
 }
 
 /* mouse over link */
 a:hover {
-    color: blue;
-}
-
-/* selected link */
-a:active {
     color: blue;
 }

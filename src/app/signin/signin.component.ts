@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserService } from '../user.service';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -16,19 +18,27 @@ export class SigninComponent implements OnInit {
         password: ""
       }
 
-  constructor(public _api: UserService) { }
+  constructor(public _api: UserService, private router: Router) { }
   
-  onCheckUser() {
+  signIn() {
     this._api.checkUser(this.userCredentials)
     .subscribe(
-        (data:any) => {
-          console.log("Login is successful", data);
-          window.sessionStorage.setItem("token", data.token);
-          window.sessionStorage.setItem("userId", data.userId);
+        (res:any) => {
+          console.log("Login is successful", res);
+          window.sessionStorage.setItem("token", res.token);
+          window.sessionStorage.setItem("userId", res.userId);
+          this.router.navigate([`/dashboard`]);
+          this.onGetUser();
         });
   }
   
-  
+  onGetUser() {
+    this._api.getUser(window.sessionStorage.userId, window.sessionStorage.token)
+    .subscribe((res: any) => {
+      console.log(res.firstName);
+      this._api.firstName = res.firstName;
+    });
+  }
 
   ngOnInit() {
   }

@@ -6,7 +6,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  base_url: string = "http://meanstack-2018-5-viramint-phortonssf.c9users.io:8080/api/AppUsers";
+  base_url: string = "http://meanstack-2018-5-viramint-phortonssf.c9users.io:8080/api/AppUsers/";
+  
+  firstName = "";
 
   constructor(public _http: HttpClient) { }
   
@@ -20,5 +22,9 @@ export class UserService {
   
   logOut(token) {
     return this._http.post(this.base_url + "/logout?access_token=" + token, {});
+  }
+  
+  getUser(userId, token) {
+    return this._http.get(this.base_url + userId + "?access_token=" + token);
   }
 }

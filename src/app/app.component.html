@@ -1,74 +1,14 @@
 <header class="header-6">
-    <form class="search">
-        <label for="search_input">
-            <input [(ngModel)]="symbol" [ngModelOptions]="{standalone: true}" id="search_input" type="text" placeholder="Search for keywords...">
-            <button (click)="onSearchSymbol()">Search</button>
-        </label>
-    </form>
-    <div class="header-actions">
-        <clr-dropdown>
-            <button class="nav-icon" clrDropdownTrigger>
-                <clr-icon shape="user"></clr-icon>
-                <clr-icon shape="caret down"></clr-icon>
-            </button>
-            <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-                <!--<a href="..." clrDropdownItem>About</a>-->
-                <!--<a href="..." clrDropdownItem>Preferences</a>-->
-                <!--<a href="..." clrDropdownItem (click)="onLogOut()">Log out</a>-->
-                <button (click)="onLogOut()">Log out</button>
-            </clr-dropdown-menu>
-        </clr-dropdown>
+    <div class="branding">
+        <h3 class="heading">Stock</h3>
+    </div>
+    <div class="header-nav">
+        <a routerLink="signin" class="nav-link nav-text">Sign in</a>
+        <a routerLink="signup" class="nav-link nav-text">Sign up</a>
     </div>
 </header>
 
-<div class="container">
-  <div class="equity-list">
-    <div *ngIf="symbolResult">
-      <p *ngFor="let res of symbolResult.bestMatches">{{res["2. name"]}} <br/> <b>Equity:</b> {{res["1. symbol"]}}</p>
-    </div>
-  </div>
-  
-  <div class="chart">
-    <div class="row">
-      <div class="col-md-6">
-        <!--<div style="display: block;">-->
-          <canvas baseChart width="400" height="400"
-                [datasets]="lineChartData"
-                [labels]="lineChartLabels"
-                [options]="lineChartOptions"
-                [colors]="lineChartColors"
-                [legend]="lineChartLegend"
-                [chartType]="lineChartType"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)">
-          </canvas>
-        <!--</div>-->
-      </div>
-      <!--<div class="col-md-6" style="margin-bottom: 10px">-->
-      <!--  <table class="table table-responsive table-condensed">-->
-      <!--    <tr>-->
-      <!--      <th *ngFor="let label of lineChartLabels">{{label}}</th>-->
-      <!--      </tr>-->
-      <!--    <tr *ngFor="let d of lineChartData">-->
-      <!--      <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>-->
-      <!--    </tr>-->
-      <!--  </table>-->
-      <!--  <button (click)="randomize()">CLICK</button>-->
-      <!--</div>-->
-    </div>
-  </div>
-  
-  <div class="exchange">
-    <h2>Exchange rate</h2>
-  </div>
-</div>
-
-<!--<div>-->
-<!--  <input [(ngModel)]="amount"> USD<br>-->
-<!--  <input value="{{convertRate()}}"> JPY<br>-->
-<!--  <button class="btn btn-primary" (click)="onGetStockData()">Get rate</button>-->
-<!--  <button (click)="onGetStockData()">Get rate</button>-->
-<!--</div>-->
-
+<router-outlet></router-outlet>
+<!--<app-dashboard></app-dashboard>-->
 <!--<app-signin></app-signin><br>-->
 <!--<app-signup></app-signup>-->

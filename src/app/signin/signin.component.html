@@ -2,10 +2,9 @@
   <h1 class="heading">Sign In</h1>
   <input [(ngModel)]="userCredentials.email" class="username" placeholder="Username or email"><br>
   <input [(ngModel)]="userCredentials.password" class="password" placeholder="Password"><br>
-  <button (click)="onCheckUser()" class="sign-in">Sign in</button>
+  <button (click)="signIn()" class="sign-in">Sign in</button>
   
   <div class="container">
       <a class="forgot-password" href="">Forgot password?</a>
-      <a class="sign-up" href="">Sign up</a>
   </div>
 </div>

@@ -10,12 +10,19 @@ import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { UserService } from './user.service';
+import { StockService } from './stock.service';
+
+import { ROUTER } from './app.router';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +30,10 @@ import { SigninComponent } from './signin/signin.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    ROUTER
   ],
-  providers: [],
+  providers: [UserService, StockService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

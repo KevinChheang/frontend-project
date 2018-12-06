@@ -1,0 +1,49 @@
+<header class="header-6">
+    <div class="branding">
+        <form class="search">
+            <label for="search_input">
+                <input size="50" [(ngModel)]="symbol" [ngModelOptions]="{standalone: true}" id="search_input" type="text" placeholder="Search for keywords...">
+                <button class="btn" (click)="onSearchSymbol()">Search</button>
+            </label>
+        </form>
+    </div>
+    <div class="header-actions">
+        <!--<h3 class="title">Welcome {{firstName}}</h3>-->
+        <button class="btn btn-primary" (click)="onLogOut()">Log out</button>
+    </div>
+</header>
+<br/>
+
+<div class="container">
+  <div class="equity-list">
+    <div *ngIf="symbolResult">
+      <p *ngFor="let res of symbolResult.bestMatches">{{res["2. name"]}} <br/> <b>Equity:</b> {{res["1. symbol"]}}</p>
+    </div>
+  </div>
+  
+  <div class="chart">
+    <div class="row">
+      <div class="col-md-6">
+        <div style="display: block;">
+          <canvas baseChart width="350%" height="400"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="exchange">
+    <button (click)="onTest">Get rate</button>
+    <div *ngIf="results">
+      <h4></h4>
+    </div>
+  </div>
+</div>
