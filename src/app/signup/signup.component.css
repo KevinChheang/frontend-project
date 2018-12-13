@@ -13,11 +13,12 @@
 
 .username {
     width: 20%;
-    background-color: #3C474B;
+    background-color: red;
     border: none;
     border-radius: 5px;
     color: #fff;
     padding-left: 5px;
+    border: 1px solid red;
 }
 
 .email {

@@ -27,4 +27,17 @@ export class UserService {
   getUser(userId, token) {
     return this._http.get(this.base_url + userId + "?access_token=" + token);
   }
+  
+  //Api calls to save favorite stock
+  saveFav(userId, token, fav) {
+    return this._http.post("http://meanstack-2018-5-viramint-phortonssf.c9users.io:8080/api/AppUsers/" + userId + "/StockFavs?access_token=" + token, fav)
+  }
+  
+  getFav(userId, token) {
+    return this._http.get("http://meanstack-2018-5-viramint-phortonssf.c9users.io:8080/api/AppUsers/" + userId + "/StockFavs?access_token=" + token);
+  }
+  
+  deleteFav(userId, token) {
+    return this._http.delete("http://meanstack-2018-5-viramint-phortonssf.c9users.io:8080/api/AppUsers/" + userId + "/StockFavs?access_token=" + token);
+  }
 }

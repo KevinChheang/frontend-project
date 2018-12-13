@@ -9,7 +9,7 @@
     </div>
     <div class="header-actions">
         <!--<h3 class="title">Welcome {{firstName}}</h3>-->
-        <button class="btn btn-primary" (click)="onLogOut()">Log out</button>
+        <button class="btn btn-danger" (click)="onLogOut()">Log out</button>
     </div>
 </header>
 <br/>
@@ -24,8 +24,8 @@
   <div class="chart">
     <div class="row">
       <div class="col-md-6">
-        <div style="display: block;">
-          <canvas baseChart width="350%" height="400"
+        <div style="display: grid;">
+          <canvas baseChart width="400" height="400"
                 [datasets]="lineChartData"
                 [labels]="lineChartLabels"
                 [options]="lineChartOptions"
@@ -38,12 +38,15 @@
         </div>
       </div>
     </div>
+    <button class="btn btn-primary" *ngIf="isGetStock" (click)="onSaveFav()">Save Fav</button>
+    <button class="btn btn-primary" (click)="onGetStockInfo()">Get stock</button>
+    <button class="btn btn-primary" (click)="onDeleteFav()">Delete favorite</button>
   </div>
   
-  <div class="exchange">
-    <button (click)="onTest">Get rate</button>
+  <div class="favorite-list">
     <div *ngIf="results">
-      <h4></h4>
+      <h3>My favorite stocks</h3>
+      <h6 *ngFor="let res of results">{{res["1"]["name"]}}</h6>
     </div>
   </div>
 </div>

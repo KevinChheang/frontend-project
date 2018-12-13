@@ -1,7 +1,7 @@
 .container {
     display: grid;
-    grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 100%;
+    grid-template-columns: 15% 70% 15%;
+    /*grid-template-rows: 100%;*/
     grid-gap: 10px;
 }
 
@@ -12,14 +12,22 @@
 }
 
 .equity-list {
-    border: 2px solid red;
-    margin-left: 0px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    padding: 10px;
 }
 
 .chart {
-   border: 2px solid blue; 
+   /*border: 2px solid blue; */
+   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+   padding: 10px;
 }
 
-.exchange {
-    border: 2px solid green; 
+.favorite-list {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    padding: 10px;
+    text-align: center;
+}
+
+#search_input {
+    margin-right: 10px;
 }
